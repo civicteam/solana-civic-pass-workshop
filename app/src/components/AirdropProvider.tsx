@@ -5,6 +5,7 @@ import { useAnchorWallet } from "@solana/wallet-adapter-react";
 import toast from "react-hot-toast";
 import { claim as claimAction } from "@/actions/claim";
 import { getTicket as getTicketAction } from "@/actions/getTicket";
+import {useGateway} from "@civic/solana-gateway-react";
 
 type AirdropContextType = {
   balance: number | null;
@@ -23,6 +24,7 @@ export const AirdropContext = createContext<AirdropContextType>({
 
 export const AirdropProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const wallet = useAnchorWallet();
+  const { gatewayToken } = useGateway();
   const [balance, setBalance] = useState<number | null>(null);
   const [isConfirming, setIsConfirming] = useState(false);
   const [txHash, setTxHash] = useState<string>();
@@ -37,13 +39,13 @@ export const AirdropProvider: FC<{ children: ReactNode }> = ({ children }) => {
   }, [wallet?.publicKey.toBase58()]);
 
   const claim = async () => {
-    if (!wallet) {
-      console.log("No wallet", wallet);
-      throw new Error("No wallet");
+    if (!gatewayToken || !wallet) {
+      console.log("No wallet or pass", wallet, gatewayToken);
+      throw new Error("No wallet or pass");
     }
 
     try {
-      const txSig = await claimAction(wallet.publicKey.toBase58());
+      const txSig = await claimAction(wallet.publicKey.toBase58(), gatewayToken.publicKey.toBase58());
       console.log("Airdrop tx sig:", txSig);
 
       toast.success(<a href={`https://explorer.solana.com/tx/${txSig}?cluster=devnet`} target="_blank">Airdrop

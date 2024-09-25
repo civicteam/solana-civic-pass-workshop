@@ -183,6 +183,9 @@
           }
         },
         {
+          "name": "pass"
+        },
+        {
           "name": "recipient"
         },
         {
@@ -242,6 +245,10 @@
           "type": "pubkey"
         },
         {
+          "name": "pass_type",
+          "type": "pubkey"
+        },
+        {
           "name": "amount",
           "type": "u64"
         }
@@ -284,6 +291,10 @@
         "fields": [
           {
             "name": "authority",
+            "type": "pubkey"
+          },
+          {
+            "name": "pass_type",
             "type": "pubkey"
           },
           {

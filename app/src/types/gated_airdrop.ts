@@ -189,6 +189,9 @@ export type GatedAirdrop = {
           }
         },
         {
+          "name": "pass"
+        },
+        {
           "name": "recipient"
         },
         {
@@ -248,6 +251,10 @@ export type GatedAirdrop = {
           "type": "pubkey"
         },
         {
+          "name": "passType",
+          "type": "pubkey"
+        },
+        {
           "name": "amount",
           "type": "u64"
         }
@@ -290,6 +297,10 @@ export type GatedAirdrop = {
         "fields": [
           {
             "name": "authority",
+            "type": "pubkey"
+          },
+          {
+            "name": "passType",
             "type": "pubkey"
           },
           {
