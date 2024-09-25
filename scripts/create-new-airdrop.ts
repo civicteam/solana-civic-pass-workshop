@@ -13,11 +13,6 @@ import { GatedAirdrop } from "../app/src/types/gated_airdrop";
 // export ANCHOR_PROVIDER_URL=https://api.devnet.solana.com
 // export ANCHOR_WALLET=~/.config/solana/id.json
 
-// Choose the Civic Pass to use to gate the airdrop
-export const UNIQUENESS_PASS = new PublicKey("uniqobk8oGh4XBLMqM68K8M2zNu3CdYX7q5go7whQiv")
-export const LIVENESS_PASS = new PublicKey("vaa1QRNEBb1G2XjPohqGWnPsvxWnwwXF67pdjrhDSwM")
-const CHOSEN_PASS = UNIQUENESS_PASS;
-
 // each airdrop is for 1 token
 const AMOUNT = 1;
 
@@ -54,7 +49,6 @@ const mintIxes = [
 // create the airdrop instance
 await program.methods.initialize(
     newMint.publicKey,
-    CHOSEN_PASS,
     new BN(AMOUNT)
 ).accounts({
     airdrop: newAirdrop.publicKey,

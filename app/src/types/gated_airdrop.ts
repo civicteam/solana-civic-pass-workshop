@@ -189,9 +189,6 @@ export type GatedAirdrop = {
           }
         },
         {
-          "name": "gatewayToken"
-        },
-        {
           "name": "recipient"
         },
         {
@@ -251,10 +248,6 @@ export type GatedAirdrop = {
           "type": "pubkey"
         },
         {
-          "name": "gatekeeperNetwork",
-          "type": "pubkey"
-        },
-        {
           "name": "amount",
           "type": "u64"
         }
@@ -297,10 +290,6 @@ export type GatedAirdrop = {
         "fields": [
           {
             "name": "authority",
-            "type": "pubkey"
-          },
-          {
-            "name": "gatekeeperNetwork",
             "type": "pubkey"
           },
           {

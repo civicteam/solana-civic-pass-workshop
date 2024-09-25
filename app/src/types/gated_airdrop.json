@@ -183,9 +183,6 @@
           }
         },
         {
-          "name": "gateway_token"
-        },
-        {
           "name": "recipient"
         },
         {
@@ -245,10 +242,6 @@
           "type": "pubkey"
         },
         {
-          "name": "gatekeeper_network",
-          "type": "pubkey"
-        },
-        {
           "name": "amount",
           "type": "u64"
         }
@@ -291,10 +284,6 @@
         "fields": [
           {
             "name": "authority",
-            "type": "pubkey"
-          },
-          {
-            "name": "gatekeeper_network",
             "type": "pubkey"
           },
           {
