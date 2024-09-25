@@ -12,15 +12,13 @@ import { clusterApiUrl } from "@solana/web3.js";
 
 require("@solana/wallet-adapter-react-ui/styles.css");
 
-const localnet = "http://localhost:8899"
-
 export default function AppWalletProvider({
                                               children,
                                           }: {
     children: React.ReactNode;
 }) {
     const network = WalletAdapterNetwork.Devnet;
-    const endpoint = localnet; //useMemo(() => clusterApiUrl(network), [network]);
+    const endpoint = useMemo(() => clusterApiUrl(network), [network]);
     const wallets = useMemo(
         () => [
             // manually add any legacy wallet adapters here

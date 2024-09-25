@@ -4,6 +4,7 @@ import "./globals.css";
 import "@solana/wallet-adapter-react-ui/styles.css";
 import AppWalletProvider from "@/components/AppWalletProvider";
 import {AirdropProvider} from "@/components/AirdropProvider";
+import {CivicPassProvider} from "@/components/CivicPassProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,9 +22,11 @@ export default function RootLayout({
         <html lang="en">
         <body className={inter.className}>
         <AppWalletProvider>
-            <AirdropProvider>
-                {children}
-            </AirdropProvider>
+            <CivicPassProvider>
+                <AirdropProvider>
+                    {children}
+                </AirdropProvider>
+            </CivicPassProvider>
         </AppWalletProvider>
         </body>
         </html>
